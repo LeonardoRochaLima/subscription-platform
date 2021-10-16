@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Newsletter;
+use App\Models\WebSite;
 
-class SubscriberController extends Controller
+class WebSiteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class SubscriberController extends Controller
      */
     public function index()
     {
-       // Newsletter::subscribe('rincewind@discworld.com');
+        //
     }
 
     /**

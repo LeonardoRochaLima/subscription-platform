@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Newsletter;
+use App\Models\Post;
 
-class SubscriberController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class SubscriberController extends Controller
      */
     public function index()
     {
-       // Newsletter::subscribe('rincewind@discworld.com');
+        return Post::all();
     }
 
     /**
@@ -36,7 +35,7 @@ class SubscriberController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Post::create($request->all());
     }
 
     /**
@@ -47,7 +46,7 @@ class SubscriberController extends Controller
      */
     public function show($id)
     {
-        //
+        return Post::find($id);
     }
 
     /**
@@ -70,7 +69,8 @@ class SubscriberController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Post::find($id);
+        $post->update($request->all());
     }
 
     /**
@@ -81,6 +81,7 @@ class SubscriberController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
     }
 }
